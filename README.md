@@ -14,7 +14,7 @@ Esta base de datos sobre los simpson incluye sobre personajes, episodios, famili
 
 # Estructura de la Base de Datos
 La base de datos consta de las siguientes tablas:
-## Personajes
+## 1.Personajes
 Descripción: Almacena información sobre los personajes de Los Simpson.
 
 ![image](https://github.com/user-attachments/assets/9bade86d-efa5-4ff2-b9f6-4d48cb2e248b)
@@ -32,7 +32,7 @@ Descripción: Almacena información sobre los personajes de Los Simpson.
 
 
 
-## Episodios
+## 2.Episodios
 Descripción: Almacena información sobre los episodios de cada temporada.
 
 ![image](https://github.com/user-attachments/assets/aabcaf08-1e0f-4f83-b483-ea89a7599341)
@@ -47,12 +47,12 @@ Descripción: Almacena información sobre los episodios de cada temporada.
 | `temporadas_id`| INT                                  | Referencia a la temporada a la que pertenece el episodio (FOREIGN KEY). |
 
 
-## Familias
+## 3.Familias
 Descripción: Almacena información sobre las familias en el universo de Los Simpson.
 
 ![image](https://github.com/user-attachments/assets/8390023d-0b99-4b1f-8051-bc40715bd368)
 
-Columnas:
+### Columnas:
 
 
 | Columna  | Tipo                                 | Descripción                                                  |
@@ -64,69 +64,194 @@ Columnas:
 
 
 ## 4. Lugares
-id: INT, clave primaria, auto-incremental.
-nombre: VARCHAR(100), no nulo.
-tipo: VARCHAR(50).
-direccion: VARCHAR(255).
-descripcion: TEXT.
+Descripción: Almacena información sobre los lugares que aparecen en la serie.
 
 ![image](https://github.com/user-attachments/assets/553005ca-70be-4bd4-9c31-f2b8e3ca55f1)
 
+### Columnas:
+
+
+| Columna     | Tipo                                 | Descripción                                                  |
+|-------------|--------------------------------------|--------------------------------------------------------------|
+| `id`        | INT, AUTO_INCREMENT, PRIMARY KEY     | Identificador único del lugar.                               |
+| `nombre`    | VARCHAR(50), NOT NULL                | Nombre del lugar.                                           |
+| `tipo`      | VARCHAR(20), NOT NULL                | Tipo de lugar (ej. escuela, tienda).                       |
+| `direccion` | VARCHAR(100), NOT NULL               | Dirección del lugar.                                       |
+| `descripcion` | TEXT, NOT NULL                     | Descripción del lugar.                                     |
+
+
+
 
 ## 5. Objetos
-id: INT, clave primaria, auto-incremental.
-nombre: VARCHAR(100), no nulo.
-descripcion: TEXT.
-propietario_id: INT, clave foránea que referencia a Personajes(id).
-uso: TEXT.
+Descripción: Almacena información sobre los objetos que aparecen en Los Simpson.
 
 ![image](https://github.com/user-attachments/assets/5c7bc887-a79f-4b8a-865a-804e327bb113)
 
+### Columnas:
+
+| Columna      | Tipo                                 | Descripción                                                  |
+|--------------|--------------------------------------|--------------------------------------------------------------|
+| `id`         | INT, AUTO_INCREMENT, PRIMARY KEY     | Identificador único del objeto.                              |
+| `nombre`     | VARCHAR(50), NOT NULL                | Nombre del objeto.                                          |
+| `descripcion`| TEXT, NOT NULL                       | Descripción del objeto.                                     |
+| `color`      | VARCHAR(20), NOT NULL                | Color del objeto.                                          |
+| `uso`        | VARCHAR(50), NOT NULL                | Uso del objeto.                                            |
+
+
+
+
 
 ## 6. Eventos
-id: INT, clave primaria, auto-incremental.
-nombre: VARCHAR(100), no nulo.
-descripcion: TEXT.
+Descripción: Almacena información sobre eventos significativos en la serie.
 
 ![image](https://github.com/user-attachments/assets/c2933368-f243-4f6c-9033-9a81b15ca23c)
 
+### Columnas:
+
+| Columna      | Tipo                                 | Descripción                                                  |
+|--------------|--------------------------------------|--------------------------------------------------------------|
+| `id`         | INT, AUTO_INCREMENT, PRIMARY KEY     | Identificador único del evento.                              |
+| `nombre`     | VARCHAR(50), NOT NULL                | Nombre del evento.                                          |
+| `descripcion`| TEXT, NOT NULL                       | Descripción del evento.                                     |
+
+
+
+
 
 ## 7. Temporadas
-id: INT, clave primaria, auto-incremental.
-numero_temporada: INT, no nulo.
-numero_episodio: INT, no nulo.
-fecha_inicio: DATE.
-fecha_fin: DATE.
+Descripción: Almacena información sobre las temporadas de Los Simpson.
 
 ![image](https://github.com/user-attachments/assets/4338655b-74c6-4bea-8b83-f86a45e80a76)
 
+### Columnas:
+
+| Columna        | Tipo                                 | Descripción                                                  |
+|----------------|--------------------------------------|--------------------------------------------------------------|
+| `id`           | INT, AUTO_INCREMENT, PRIMARY KEY     | Identificador único de la temporada.                        |
+| `titulo`       | VARCHAR(100), NOT NULL               | Título de la temporada.                                     |
+| `fecha_inicio` | DATE                                 | Fecha de inicio de la temporada.                            |
+| `fecha_fin`    | DATE                                 | Fecha de fin de la temporada.                               |
+
+
 
 ## 8. Canciones
-id: INT, clave primaria, auto-incremental.
-titulo: VARCHAR(100), no nulo.
-artista: VARCHAR(100).
-episodio_id: INT, clave foránea que referencia a Episodios(id).
+Descripción: Almacena información sobre las canciones que aparecen en la serie.
 
 ![image](https://github.com/user-attachments/assets/164f1008-ee75-4be1-b35e-10bcefffada6)
 
+### Columnas:
+
+| Columna      | Tipo                                 | Descripción                                                  |
+|--------------|--------------------------------------|--------------------------------------------------------------|
+| `id`         | INT, AUTO_INCREMENT, PRIMARY KEY     | Identificador único de la canción.                           |
+| `titulo`     | VARCHAR(100), NOT NULL               | Título de la canción.                                       |
+| `artista`    | VARCHAR(50), NOT NULL                | Artista de la canción.                                      |
+
+
+
+
 
 ## 9. Mascotas
-id: INT, clave primaria, auto-incremental.
-nombre: VARCHAR(100), no nulo.
-tipo: VARCHAR(50).
-personaje_id: INT, clave foránea que referencia a Personajes(id).
+Descripción: Almacena información sobre las mascotas de los personajes.
 
 ![image](https://github.com/user-attachments/assets/3c5b9b9e-d136-4bbf-a6d6-6b542374d025)
 
+### Columnas:
+
+| Columna       | Tipo                                 | Descripción                                                  |
+|---------------|--------------------------------------|--------------------------------------------------------------|
+| `id`          | INT, AUTO_INCREMENT, PRIMARY KEY     | Identificador único de la mascota.                          |
+| `nombre`      | VARCHAR(50), NOT NULL                | Nombre de la mascota.                                       |
+| `tipo`        | VARCHAR(20), NOT NULL                | Tipo de mascota (ej. perro, gato).                         |
+| `color`       | VARCHAR(20), NOT NULL                | Color de la mascota.                                       |
+| `personajes_id` | INT                                | Referencia al personaje que posee la mascota (FOREIGN KEY). |
+
+
 
 ## 10. Vehículos
-id: INT, clave primaria, auto-incremental.
-nombre: VARCHAR(100), no nulo.
-tipo: VARCHAR(50).
-color: VARCHAR(30).
-propietario_id: INT, clave foránea que referencia a Personajes(id).
+Descripción: Almacena información sobre los vehículos de los personajes.
 
 ![image](https://github.com/user-attachments/assets/6466962d-a943-4222-8474-8876aca5afe3)
+
+### Columnas:
+
+### Vehículos
+
+| Columna        | Tipo                                 | Descripción                                                  |
+|----------------|--------------------------------------|--------------------------------------------------------------|
+| `id`           | INT, AUTO_INCREMENT, PRIMARY KEY     | Identificador único del vehículo.                            |
+| `nombre`       | VARCHAR(50), NOT NULL                | Nombre del vehículo.                                        |
+| `tipo`         | VARCHAR(20), NOT NULL                | Tipo de vehículo (ej. coche, bicicleta).                   |
+| `color`        | VARCHAR(20), NOT NULL                | Color del vehículo.                                        |
+| `personajes_id`| INT                                  | Referencia al personaje que posee el vehículo (FOREIGN KEY). |
+
+
+## 11.Personajes_Objetos
+Descripción: Relaciona personajes con objetos que utilizan o poseen.
+
+![image](https://github.com/user-attachments/assets/549d63a7-0082-44b6-8c0a-34d8e8cc68ba)
+
+### Columnas:
+
+| Columna        | Tipo                                 | Descripción                                                  |
+|----------------|--------------------------------------|--------------------------------------------------------------|
+| `personajes_id`| INT                                  | Referencia al personaje (FOREIGN KEY).                      |
+| `objetos_id`   | INT                                  | Referencia al objeto (FOREIGN KEY).                         |
+
+
+### 12.Familias_Eventos
+Descripción: Relaciona familias con eventos en los que participan.
+
+![image](https://github.com/user-attachments/assets/4fd0498a-e0b8-4604-8097-b9857c7f61e6)
+
+### Columnas:
+
+
+| Columna       | Tipo                                 | Descripción                                                  |
+|---------------|--------------------------------------|--------------------------------------------------------------|
+| `familias_id` | INT                                  | Referencia a la familia (FOREIGN KEY).                      |
+| `eventos_id`  | INT                                  | Referencia al evento (FOREIGN KEY).                         |
+
+
+### 13.Eventos_Lugares
+Descripción: Relaciona eventos con los lugares donde ocurren.
+
+![image](https://github.com/user-attachments/assets/3b33ffc5-aca5-4ed8-97d2-1e4a25bd5737)
+
+### Columnas:
+
+
+| Columna       | Tipo                                 | Descripción                                                  |
+|---------------|--------------------------------------|--------------------------------------------------------------|
+| `lugares_id`  | INT                                  | Referencia al lugar (FOREIGN KEY).                          |
+| `eventos_id`  | INT                                  | Referencia al evento (FOREIGN KEY).                         |
+
+
+### 14.Episodios_Eventos
+Descripción: Relaciona episodios con eventos que suceden en ellos.
+
+![image](https://github.com/user-attachments/assets/ba79b9a4-22e5-47f1-b8fe-1aba42da9250)
+
+### Columnas:
+
+| Columna       | Tipo                                 | Descripción                                                  |
+|---------------|--------------------------------------|--------------------------------------------------------------|
+| `episodios_id`| INT                                  | Referencia al episodio (FOREIGN KEY).                       |
+| `eventos_id`  | INT                                  | Referencia al evento (FOREIGN KEY).                         |
+
+
+### 15.Episodios_Canciones
+Descripción: Relaciona episodios con canciones que aparecen en ellos.
+
+![image](https://github.com/user-attachments/assets/49e681cf-8d11-4885-b148-7e309d847a0f)
+
+### Columnas:
+
+| Columna       | Tipo                                 | Descripción                                                  |
+|---------------|--------------------------------------|--------------------------------------------------------------|
+| `episodios_id`| INT                                  | Referencia al episodio (FOREIGN KEY).                       |
+| `canciones_id`| INT                                  | Referencia a la canción (FOREIGN KEY).                      |
+
 
 
 # Requerimientos:
