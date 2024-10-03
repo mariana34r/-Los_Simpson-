@@ -17,12 +17,12 @@ La base de datos consta de las siguientes tablas:
 ## Personajes
 Descripción: Almacena información sobre los personajes de Los Simpson.
 ### Columnas:
-id (INT, AUTO_INCREMENT, PRIMARY KEY): Identificador único del personaje.
-nombre (VARCHAR(50), NOT NULL): Nombre del personaje.
-edad (INT): Edad del personaje.
-genero (VARCHAR(10), NOT NULL): Género del personaje.
-ocupacion (VARCHAR(50)): Ocupación del personaje.
-familia_id (INT): Referencia a la familia a la que pertenece el personaje (FOREIGN KEY).
+-id (INT, AUTO_INCREMENT, PRIMARY KEY): Identificador único del personaje.
+-nombre (VARCHAR(50), NOT NULL): Nombre del personaje.
+-edad (INT): Edad del personaje.
+-genero (VARCHAR(10), NOT NULL): Género del personaje.
+-ocupacion (VARCHAR(50)): Ocupación del personaje.
+-familia_id (INT): Referencia a la familia a la que pertenece el personaje (FOREIGN KEY).
 
 ![image](https://github.com/user-attachments/assets/9bade86d-efa5-4ff2-b9f6-4d48cb2e248b)
 
