@@ -24,6 +24,9 @@ ocupacion: VARCHAR(100).
 familia_id: INT, clave foránea que referencia a Familias(id).
 objeto_id: INT, clave foránea que referencia a Objetos(id).
 
+![image](https://github.com/user-attachments/assets/9bade86d-efa5-4ff2-b9f6-4d48cb2e248b)
+
+
 ## 2. Episodios
 id: INT, clave primaria, auto-incremental.
 titulo: VARCHAR(100), no nulo.
