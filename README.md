@@ -10,7 +10,11 @@
 | 5. | [Autores](#Autores) |
 
 # Descripción del Proyecto
-Esta base de datos sobre los simpson incluye sobre personajes, episodios, familias, objetos, lugares, eventos, temporadas, canciones, mascotas y vehículos. 
+Esta base de datos sobre los simpson incluye sobre personajes, episodios, familias, objetos, lugares, eventos, temporadas, canciones, mascotas y vehículos.
+
+# Imagen de la base de datoslos simpson:
+
+![image](https://github.com/user-attachments/assets/2b432548-f7e2-4655-9f96-7e5859745244)
 
 # Estructura de la Base de Datos
 La base de datos consta de las siguientes tablas:
