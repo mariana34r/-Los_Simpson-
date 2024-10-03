@@ -14,7 +14,7 @@ Esta base de datos sobre los simpson incluye sobre personajes, episodios, famili
 
 # Estructura de la Base de Datos
 La base de datos consta de las siguientes tablas:
-### Personajes
+## Personajes
 Descripción: Almacena información sobre los personajes de Los Simpson.
 ### Columnas:
 id (INT, AUTO_INCREMENT, PRIMARY KEY): Identificador único del personaje.
