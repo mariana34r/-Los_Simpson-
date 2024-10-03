@@ -33,6 +33,9 @@ titulo: VARCHAR(100), no nulo.
 temporada_id: INT, clave foránea que referencia a Temporadas(id).
 sinopsis: TEXT.
 
+![image](https://github.com/user-attachments/assets/aabcaf08-1e0f-4f83-b483-ea89a7599341)
+
+
 ## 3. Familias
 id: INT, clave primaria, auto-incremental.
 nombre: VARCHAR(100), no nulo.
