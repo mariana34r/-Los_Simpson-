@@ -17,7 +17,6 @@ La base de datos consta de las siguientes tablas:
 ## Personajes
 Descripción: Almacena información sobre los personajes de Los Simpson.
 ### Columnas:
-### Personajes
 
 | Columna      | Tipo                                 | Descripción                                              |
 |--------------|--------------------------------------|----------------------------------------------------------|
