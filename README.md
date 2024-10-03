@@ -10,8 +10,7 @@
 | 5. | [Autores](#Autores) |
 
 # Descripción del Proyecto
-SerieDB es una base de datos diseñada para almacenar información relacionada con una serie de televisión. 
-Esta base de datos incluye sobre personajes, episodios, familias, objetos, lugares, eventos, temporadas, canciones, mascotas y vehículos. 
+Esta base de datos sobre los simpson incluye sobre personajes, episodios, familias, objetos, lugares, eventos, temporadas, canciones, mascotas y vehículos. 
 
 # Estructura de la Base de Datos
 La base de datos consta de las siguientes tablas:
