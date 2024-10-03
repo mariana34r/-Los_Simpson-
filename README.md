@@ -42,12 +42,18 @@ nombre: VARCHAR(100), no nulo.
 miembros: INT.
 direccion: VARCHAR(255).
 
+![image](https://github.com/user-attachments/assets/8390023d-0b99-4b1f-8051-bc40715bd368)
+
+
 ## 4. Lugares
 id: INT, clave primaria, auto-incremental.
 nombre: VARCHAR(100), no nulo.
 tipo: VARCHAR(50).
 direccion: VARCHAR(255).
 descripcion: TEXT.
+
+![image](https://github.com/user-attachments/assets/553005ca-70be-4bd4-9c31-f2b8e3ca55f1)
+
 
 ## 5. Objetos
 id: INT, clave primaria, auto-incremental.
@@ -56,10 +62,16 @@ descripcion: TEXT.
 propietario_id: INT, clave foránea que referencia a Personajes(id).
 uso: TEXT.
 
+![image](https://github.com/user-attachments/assets/5c7bc887-a79f-4b8a-865a-804e327bb113)
+
+
 ## 6. Eventos
 id: INT, clave primaria, auto-incremental.
 nombre: VARCHAR(100), no nulo.
 descripcion: TEXT.
+
+![image](https://github.com/user-attachments/assets/c2933368-f243-4f6c-9033-9a81b15ca23c)
+
 
 ## 7. Temporadas
 id: INT, clave primaria, auto-incremental.
@@ -68,11 +80,17 @@ numero_episodio: INT, no nulo.
 fecha_inicio: DATE.
 fecha_fin: DATE.
 
+![image](https://github.com/user-attachments/assets/4338655b-74c6-4bea-8b83-f86a45e80a76)
+
+
 ## 8. Canciones
 id: INT, clave primaria, auto-incremental.
 titulo: VARCHAR(100), no nulo.
 artista: VARCHAR(100).
 episodio_id: INT, clave foránea que referencia a Episodios(id).
+
+![image](https://github.com/user-attachments/assets/164f1008-ee75-4be1-b35e-10bcefffada6)
+
 
 ## 9. Mascotas
 id: INT, clave primaria, auto-incremental.
@@ -80,12 +98,18 @@ nombre: VARCHAR(100), no nulo.
 tipo: VARCHAR(50).
 personaje_id: INT, clave foránea que referencia a Personajes(id).
 
+![image](https://github.com/user-attachments/assets/3c5b9b9e-d136-4bbf-a6d6-6b542374d025)
+
+
 ## 10. Vehículos
 id: INT, clave primaria, auto-incremental.
 nombre: VARCHAR(100), no nulo.
 tipo: VARCHAR(50).
 color: VARCHAR(30).
 propietario_id: INT, clave foránea que referencia a Personajes(id).
+
+![image](https://github.com/user-attachments/assets/6466962d-a943-4222-8474-8876aca5afe3)
+
 
 # Requerimientos:
 
