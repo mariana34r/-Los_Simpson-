@@ -47,15 +47,20 @@ Descripción: Almacena información sobre los episodios de cada temporada.
 | `temporadas_id`| INT                                  | Referencia a la temporada a la que pertenece el episodio (FOREIGN KEY). |
 
 
-
-
-## 3. Familias
-id: INT, clave primaria, auto-incremental.
-nombre: VARCHAR(100), no nulo.
-miembros: INT.
-direccion: VARCHAR(255).
+## Familias
+Descripción: Almacena información sobre las familias en el universo de Los Simpson.
 
 ![image](https://github.com/user-attachments/assets/8390023d-0b99-4b1f-8051-bc40715bd368)
+
+Columnas:
+
+
+| Columna  | Tipo                                 | Descripción                                                  |
+|----------|--------------------------------------|--------------------------------------------------------------|
+| `id`     | INT, AUTO_INCREMENT, PRIMARY KEY     | Identificador único de la familia.                          |
+| `nombre` | VARCHAR(50), NOT NULL                | Nombre de la familia.                                       |
+| `direccion` | VARCHAR(100), NOT NULL            | Dirección donde vive la familia.                            |
+
 
 
 ## 4. Lugares
