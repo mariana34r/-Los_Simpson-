@@ -16,6 +16,9 @@ Esta base de datos sobre los simpson incluye sobre personajes, episodios, famili
 La base de datos consta de las siguientes tablas:
 ## Personajes
 Descripción: Almacena información sobre los personajes de Los Simpson.
+
+![image](https://github.com/user-attachments/assets/9bade86d-efa5-4ff2-b9f6-4d48cb2e248b)
+
 ### Columnas:
 
 | Columna      | Tipo                                 | Descripción                                              |
@@ -27,7 +30,7 @@ Descripción: Almacena información sobre los personajes de Los Simpson.
 | `ocupacion`  | VARCHAR(50)                          | Ocupación del personaje.                                |
 | `familia_id` | INT                                  | Referencia a la familia a la que pertenece el personaje (FOREIGN KEY). |
 
-![image](https://github.com/user-attachments/assets/9bade86d-efa5-4ff2-b9f6-4d48cb2e248b)
+
 
 
 ## 2. Episodios
