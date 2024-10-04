@@ -314,6 +314,9 @@ Vehículos debe tener nombre (marca/modelo), Tipo (coche , motocicleta,etc) colo
 | Episodios           | N a N               | Canciones              |
 | Canciones           | N a N               | Episodios              |
 
+## Consultas 🎉:
+
+
 
 ## Autores👤:
 
