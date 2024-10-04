@@ -1,6 +1,6 @@
-# Proyecto base datos los simpson
+# Proyecto base datos los simpson 🍩
 
-## Tabla de contenido
+## Tabla de contenido 
 | Indice | Título  |
 |--|--|
 | 1. | [Descripción_del_proyecto](#Descripción_del_proyecto) |
@@ -10,14 +10,14 @@
 | 5. | [Consultas](#Consultas) |
 | 6. | [Autores](#Autores) |
  
-# Descripción del Proyecto
+# Descripción del Proyecto 🚀
 Esta base de datos sobre los simpson incluye sobre personajes, episodios, familias, objetos, lugares, eventos, temporadas, canciones, mascotas y vehículos.
 
-# Imagen de la base de datos los simpson:
+# Imagen de la base de datos los simpson 🏠:
 
 ![image](https://github.com/user-attachments/assets/2b432548-f7e2-4655-9f96-7e5859745244)
 
-# Estructura de la Base de Datos
+# Estructura de la Base de Datos 📺:
 La base de datos consta de las siguientes tablas:
 ## 1.Personajes
 Descripción: Almacena información sobre los personajes de Los Simpson.
@@ -259,7 +259,7 @@ Descripción: Relaciona episodios con canciones que aparecen en ellos.
 
 
 
-# Requerimientos:
+# Requerimientos 📺:
 
 ## Personajes:
 Personajes va a tener un nombre, edad, género, ocupación=puede ser nulo , un personaje puede un objeto (n a 1) , un personaje puede pertenecer a una familia (n a 1) un personaje puede participar en múltiples eventos(N a 1)
@@ -291,7 +291,7 @@ Mascotas debe tener nombre,tipo de mascota , personaje , mascota puede tener var
 ## Vehículos:
 Vehículos debe tener nombre (marca/modelo), Tipo (coche , motocicleta,etc) color propietario , Vehículos debe tener un propietario que es un personaje(N a 1) un personaje puede tener multiples vehiculos (1 a N)
 
-# Diagrama de Relaciones
+# Diagrama de Relaciones 🍺:
 
 | Entidad A           | Relación            | Entidad B             |
 |---------------------|---------------------|------------------------|
@@ -315,7 +315,7 @@ Vehículos debe tener nombre (marca/modelo), Tipo (coche , motocicleta,etc) colo
 | Canciones           | N a N               | Episodios              |
 
 
-## Autores👤
+## Autores👤:
 
 -[Mariana Rueda](https://github.com/mariana34r)
 -[Ronaldo Oviedo](https://github.com/RonaldoOviedo19)
