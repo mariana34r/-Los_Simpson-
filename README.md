@@ -321,11 +321,11 @@ Vehículos debe tener nombre (marca/modelo), Tipo (coche , motocicleta,etc) colo
    SELECT * FROM Personajes;
    
 2. **Contar cuántos eventos tienen la palabra 'Día' en su nombre**:
-   Cuenta la cantidad de eventos cuyos nombres contienen la palabra "Día".
+   Cuenta la cantidad de eventos cuyos nombres contienen la palabra 'Día'.
+   ```sql
+   SELECT COUNT(*) FROM Eventos WHERE nombre LIKE '%Día%';
 
-SELECT COUNT(*) FROM Eventos WHERE nombre LIKE '%Día%';
-
-3. **Obtener los títulos de las temporadas que comenzaron después del año 2000**:
+4. **Obtener los títulos de las temporadas que comenzaron después del año 2000**:
    Recupera los títulos de las temporadas que tienen una fecha de inicio posterior al 1 de enero de 2000.
 
 SELECT titulo FROM Temporadas WHERE fecha_inicio > '2000-01-01';
