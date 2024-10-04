@@ -259,7 +259,7 @@ Descripción: Relaciona episodios con canciones que aparecen en ellos.
 
 
 
-# Requerimientos 📺:
+# Requerimientos 🛋️:
 
 ## Personajes:
 Personajes va a tener un nombre, edad, género, ocupación=puede ser nulo , un personaje puede un objeto (n a 1) , un personaje puede pertenecer a una familia (n a 1) un personaje puede participar en múltiples eventos(N a 1)
