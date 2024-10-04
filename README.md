@@ -423,10 +423,9 @@ Vehículos debe tener nombre (marca/modelo), Tipo (coche , motocicleta,etc) colo
 19. **Listar los nombres de personajes y el nombre de su familia**:
     Muestra el nombre de cada personaje junto con el nombre de su 'familia'.
     ```sql
-
-SELECT Personajes.nombre, Familias.nombre AS familia 
-FROM Personajes 
-JOIN Familias ON Personajes.familia_id = Familias.id;
+    SELECT Personajes.nombre, Familias.nombre AS familia
+    FROM Personajes
+    JOIN Familias ON Personajes.familia_id = Familias.id;
 
 20. **Listar los nombres de las familias y el número de eventos en los que han participado**:
     Muestra los nombres de las familias y cuántos 'eventos han participado'.
