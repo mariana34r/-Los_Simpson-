@@ -292,10 +292,24 @@ Vehículos debe tener nombre (marca/modelo), Tipo (coche , motocicleta,etc) colo
 
 # Diagrama de Relaciones
 
+| Entidad A           | Relación            | Entidad B             |
+|---------------------|---------------------|------------------------|
+| Familias            | 1 a N               | Personajes             |
+| Personajes          | N a 1               | Familias               |
+| Personajes          | N a N               | Objetos                |
+| Objetos             | N a N               | Personajes             |
+| Personajes          | 1 a N               | Vehiculos              |
+| Vehiculos           | N a 1               | Personajes             |
+| Personajes          | 1 a N               | Mascotas               |
+| Mascotas            | N a 1               | Personajes             |
+| Familias            | N a N               | Eventos                |
+| Eventos             | N a N               | Familias               |
+| Lugares             | N a N               | Eventos                |
+| Eventos             | N a N               | Lugares                |
+| Temporadas          | 1 a N               | Episodios              |
+| Episodios           | N a 1               | Temporadas             |
+| Episodios           | N a N               | Eventos                |
+| Eventos             | N a N               | Episodios              |
+| Episodios           | N a N               | Canciones              |
+| Canciones           | N a N               | Episodios              |
 
-#### Familias (1) --------- (N) Personajes
-#### Personajes (1) --------- (N) Mascotas
-#### Personajes (1) --------- (N) Vehículos
-#### Personajes (1) --------- (1) Objetos
-#### Temporadas (1) --------- (N) Episodios
-#### Episodios (1) --------- (N) Canciones
