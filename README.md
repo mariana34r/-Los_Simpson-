@@ -3,11 +3,12 @@
 ## Tabla de contenido
 | Indice | Título  |
 |--|--|
-| 1. | [Descripción_del_proyecto](#Descripcion) |
-| 2. | [Estructura_de_la_Base_de_Datos](#Funcionalidades) |
-| 3. | [Diagrama_de_Relaciones](#Captura_de_pantalla) |
-| 4. | [Requerimientos](#Tenologia_Usada) |
-| 5. | [Autores](#Autores) |
+| 1. | [Descripción_del_proyecto](#Descripción_del_proyecto) |
+| 2. | [Estructura_de_la_Base_de_Datos](#Estructura_de_la_Base_de_Datos) |
+| 3. | [Diagrama_de_Relaciones](#Diagrama_de_Relaciones) |
+| 4. | [Requerimientos](#Requerimientos) |
+| 5. | [Consultas](#Consultas) |
+| 6. | [Autores](#Autores) |
 
 # Descripción del Proyecto
 Esta base de datos sobre los simpson incluye sobre personajes, episodios, familias, objetos, lugares, eventos, temporadas, canciones, mascotas y vehículos.
