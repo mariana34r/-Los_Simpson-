@@ -314,3 +314,8 @@ Vehículos debe tener nombre (marca/modelo), Tipo (coche , motocicleta,etc) colo
 | Episodios           | N a N               | Canciones              |
 | Canciones           | N a N               | Episodios              |
 
+
+## Autores👤
+
+-[Mariana Rueda](https://github.com/mariana34r)
+-[Ronaldo Oviedo](https://github.com/RonaldoOviedo19)
