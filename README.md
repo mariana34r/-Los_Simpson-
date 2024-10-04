@@ -430,318 +430,283 @@ Vehículos debe tener nombre (marca/modelo), Tipo (coche , motocicleta,etc) colo
 20. **Listar los nombres de las familias y el número de eventos en los que han participado**:
     Muestra los nombres de las familias y cuántos 'eventos han participado'.
     ```sql
-
-SELECT Familias.nombre, COUNT(Familias_Eventos.eventos_id) AS num_eventos 
-FROM Familias 
-JOIN Familias_Eventos ON Familias.id = Familias_Eventos.familias_id 
-GROUP BY Familias.nombre;
+    SELECT Familias.nombre, COUNT(Familias_Eventos.eventos_id) AS num_eventos
+    FROM Familias
+    JOIN Familias_Eventos ON Familias.id = Familias_Eventos.familias_id
+    GROUP BY Familias.nombre;
 
 21. **Listar los personajes que tienen al menos 3 objetos**:
     Muestra los nombres de los personajes que tienen 'tres o más objetos'.
     ```sql
-
-SELECT Personajes.nombre 
-FROM Personajes 
-JOIN Personajes_Objetos ON Personajes.id = Personajes_Objetos.personajes_id 
-GROUP BY Personajes.nombre 
-HAVING COUNT(Personajes_Objetos.objetos_id) >= 3;
+    SELECT Personajes.nombre 
+    FROM Personajes 
+    JOIN Personajes_Objetos ON Personajes.id = Personajes_Objetos.personajes_id 
+    GROUP BY Personajes.nombre 
+    HAVING COUNT(Personajes_Objetos.objetos_id) >= 3;
 
 22. **Obtener los personajes que no tienen ningún vehículo**:
     Recupera los nombres de los personajes que 'no poseen vehículos'.
     ```sql
-
-SELECT nombre 
-FROM Personajes 
-WHERE id NOT IN (SELECT personajes_id FROM Vehiculos);
+    SELECT nombre 
+    FROM Personajes 
+    WHERE id NOT IN (SELECT personajes_id FROM Vehiculos);
 
 23. **Obtener el promedio de edad de los personajes de cada familia**:
     Muestra el 'promedio de edad' de los personajes en cada familia.
     ```sql
-
-SELECT Familias.nombre, AVG(Personajes.edad) AS edad_promedio 
-FROM Familias 
-JOIN Personajes ON Familias.id = Personajes.familia_id 
-GROUP BY Familias.nombre;
+    SELECT Familias.nombre, AVG(Personajes.edad) AS edad_promedio 
+    FROM Familias 
+    JOIN Personajes ON Familias.id = Personajes.familia_id 
+    GROUP BY Familias.nombre;
 
 24. **Obtener los nombres de los personajes y las mascotas que tienen el mismo color**:
     Busca personajes cuyos nombres 'coinciden con el color de sus mascotas'.
     ```sql
-
-SELECT Personajes.nombre, Mascotas.nombre AS mascota 
-FROM Personajes 
-JOIN Mascotas ON Personajes.id = Mascotas.personajes_id 
-WHERE Personajes.nombre IN (SELECT nombre FROM Mascotas WHERE color = Mascotas.color);
+    SELECT Personajes.nombre, Mascotas.nombre AS mascota
+    FROM Personajes
+    JOIN Mascotas ON Personajes.id = Mascotas.personajes_id
+    WHERE Personajes.nombre IN (SELECT nombre FROM Mascotas WHERE color = Mascotas.color);
 
 25. **Obtener el nombre del evento en el que la familia 'Los Flanders' participó y que ocurrió en 'Moe's Tavern'**:
     Muestra el nombre de un evento específico en el que la familia 'Los Flanders' participó en 'Moe's Tavern'.
     ```sql
-    
-
-SELECT Eventos.nombre 
-FROM Familias 
-JOIN Familias_Eventos ON Familias.id = Familias_Eventos.familias_id 
-JOIN Eventos ON Familias_Eventos.eventos_id = Eventos.id 
-JOIN Eventos_Lugares ON Eventos.id = Eventos_Lugares.eventos_id 
-JOIN Lugares ON Eventos_Lugares.lugares_id = Lugares.id 
-WHERE Familias.nombre = 'Los Flanders' AND Lugares.nombre = 'Moe\'s Tavern';
+    SELECT Eventos.nombre 
+    FROM Familias 
+    JOIN Familias_Eventos ON Familias.id = Familias_Eventos.familias_id 
+    JOIN Eventos ON Familias_Eventos.eventos_id = Eventos.id 
+    JOIN Eventos_Lugares ON Eventos.id = Eventos_Lugares.eventos_id 
+    JOIN Lugares ON Eventos_Lugares.lugares_id = Lugares.id 
+    WHERE Familias.nombre = 'Los Flanders' AND Lugares.nombre = 'Moe\'s Tavern';
 
 26. **Obtener las familias que tienen personajes con más de 2 vehículos y además han asistido a un evento**:
     Muestra las familias cuyos 'personajes tienen más de dos vehículos y que han asistido a al menos un evento'.
     ```sql
-
-SELECT Familias.nombre 
-FROM Familias 
-JOIN Personajes ON Familias.id = Personajes.familia_id 
-JOIN Vehiculos ON Personajes.id = Vehiculos.personajes_id 
-JOIN Familias_Eventos ON Familias.id = Familias_Eventos.familias_id 
-GROUP BY Familias.nombre 
-HAVING COUNT(Vehiculos.id) > 2;
+    SELECT Familias.nombre
+    FROM Familias
+    JOIN Personajes ON Familias.id = Personajes.familia_id
+    JOIN Vehiculos ON Personajes.id = Vehiculos.personajes_id
+    JOIN Familias_Eventos ON Familias.id = Familias_Eventos.familias_id GROUP BY Familias.nombre
+    HAVING COUNT(Vehiculos.id) > 2;
 
 27. **Obtener el nombre del personaje más joven de cada familia**:
     Selecciona el personaje más 'joven de cada familia'.
     ```sql
-
-SELECT nombre 
-FROM Personajes P1 
-WHERE edad = (SELECT MIN(edad) FROM Personajes P2 WHERE P1.familia_id = P2.familia_id);
+    SELECT nombre
+    FROM Personajes P1
+    WHERE edad = (SELECT MIN(edad) FROM Personajes P2 WHERE P1.familia_id = P2.familia_id);
 
 
 28. **Obtener la dirección y el número de eventos en los que participaron todas las familias que tienen más de un evento en el mismo lugar**:
     Muestra las direcciones de los lugares donde más de una 'familia ha participado en eventos'.
     ```sql
-
-SELECT Lugares.direccion, COUNT(Eventos.id) AS num_eventos 
-FROM Eventos 
-JOIN Eventos_Lugares ON Eventos.id = Eventos_Lugares.eventos_id 
-JOIN Lugares ON Eventos_Lugares.lugares_id = Lugares.id 
-GROUP BY Lugares.direccion 
-HAVING num_eventos > 1;
+    SELECT Lugares.direccion, COUNT(Eventos.id) AS num_eventos
+    FROM Eventos
+    JOIN Eventos_Lugares ON Eventos.id = Eventos_Lugares.eventos_id
+    JOIN Lugares ON Eventos_Lugares.lugares_id = Lugares.id
+    GROUP BY Lugares.direccion
+    HAVING num_eventos > 1;
 
 29. **Obtener todos los personajes y sus familias, ordenados por el nombre de la familia**:
     'Lista todos los personajes junto con sus familias', 'ordenados alfabéticamente por el nombre de la familia'.
     ```sql
-
-SELECT p.nombre AS personaje, f.nombre AS familia
-FROM Personajes p
-JOIN Familias f ON p.familia_id = f.id
-ORDER BY f.nombre;
+    SELECT p.nombre AS personaje, f.nombre AS familia
+    FROM Personajes p
+    JOIN Familias f ON p.familia_id = f.id
+    ORDER BY f.nombre;
 
 30. **Contar cuántos objetos tiene cada personaje**:
     Cuenta la 'cantidad de objetos que posee cada personaje'.
     ```sql
-
-SELECT p.nombre AS personaje, COUNT(po.objetos_id) AS total_objetos
-FROM Personajes p
-LEFT JOIN Personajes_Objetos po ON p.id = po.personajes_id
-GROUP BY p.nombre;
+    SELECT p.nombre AS personaje, COUNT(po.objetos_id) AS total_objetos
+    FROM Personajes p
+    LEFT JOIN Personajes_Objetos po ON p.id = po.personajes_id
+    GROUP BY p.nombre;
 
 31. **Listar todas las mascotas y los personajes que las poseen**:
     'Muestra las mascotas y los nombres de los personajes que las poseen'.
     ```sql
-    
-SELECT m.nombre AS mascota, p.nombre AS personaje
-FROM Mascotas m
-JOIN Personajes p ON m.personajes_id = p.id;
+    SELECT m.nombre AS mascota, p.nombre AS personaje
+    FROM Mascotas m
+    JOIN Personajes p ON m.personajes_id = p.id;
 
 32. **Obtener los eventos en los que participa la familia "Los Simpson"**:
     Muestra los eventos en los que la familia "Los Simpson" está involucrada.
     ```sql
-
-SELECT e.nombre AS evento
-FROM Eventos e
-JOIN Familias_Eventos fe ON e.id = fe.eventos_id
-JOIN Familias f ON fe.familias_id = f.id
-WHERE f.nombre = 'Los Simpson';
+    SELECT e.nombre AS evento
+    FROM Eventos e
+    JOIN Familias_Eventos fe ON e.id = fe.eventos_id
+    JOIN Familias f ON fe.familias_id = f.id
+    WHERE f.nombre = 'Los Simpson';
 
 33. **Contar cuántas familias participan en cada evento**:
     Cuenta cuántas familias han 'participado en cada evento'.
     ```sql
-
-SELECT e.nombre AS evento, COUNT(fe.familias_id) AS total_familias
-FROM Eventos e
-LEFT JOIN Familias_Eventos fe ON e.id = fe.eventos_id
-GROUP BY e.nombre;
+    SELECT e.nombre AS evento, COUNT(fe.familias_id) AS total_familias
+    FROM Eventos e
+    LEFT JOIN Familias_Eventos fe ON e.id = fe.eventos_id
+    GROUP BY e.nombre;
 
 34. **Obtener la descripción de todos los lugares donde se celebran eventos**:
     Muestra los nombres y descripciones de todos los lugares donde se realizan eventos.
     ```sql
-
-SELECT l.nombre AS lugar, l.descripcion
-FROM Lugares l
-JOIN Eventos_Lugares el ON l.id = el.lugares_id;
+    SELECT l.nombre AS lugar, l.descripcion
+    FROM Lugares l
+    JOIN Eventos_Lugares el ON l.id = el.lugares_id;
 
 35. **Listar personajes junto con los vehículos que poseen, si tienen alguno**:
     Muestra los nombres de los personajes junto con el nombre de su vehículo, si tienen alguno.
     ```sql
-SELECT p.nombre AS personaje, v.nombre AS vehiculo
-FROM Personajes p
-LEFT JOIN Vehiculos v ON p.id = v.personajes_id;
+    SELECT p.nombre AS personaje, v.nombre AS vehiculo
+    FROM Personajes p
+    LEFT JOIN Vehiculos v ON p.id = v.personajes_id;
 
 37. **Encontrar la temporada en la que se emitió el episodio "Bart Gets an F"**:
     Recupera la temporada correspondiente al episodio titulado "Bart Gets an F".
     ```sql
-
-SELECT t.titulo AS temporada
-FROM Temporadas t
-JOIN Episodios e ON t.id = e.temporadas_id
-WHERE e.titulo = 'Bart Gets an F';
+    SELECT t.titulo AS temporada
+    FROM Temporadas t
+    JOIN Episodios e ON t.id = e.temporadas_id
+    WHERE e.titulo = 'Bart Gets an F';
 
 37. **Contar el número de episodios en cada temporada**:
     Cuenta cuántos episodios hay en cada temporada.
     ```sql
-
-SELECT t.titulo AS temporada, COUNT(e.id) AS total_episodios
-FROM Temporadas t
-LEFT JOIN Episodios e ON t.id = e.temporadas_id
-GROUP BY t.titulo;
+    SELECT t.titulo AS temporada, COUNT(e.id) AS total_episodios
+    FROM Temporadas t
+    LEFT JOIN Episodios e ON t.id = e.temporadas_id
+    GROUP BY t.titulo;
 
 38. **Obtener el total de vehículos por personaje, ordenado de mayor a menor**:
     Lista el total de vehículos que posee cada personaje, ordenados de mayor a menor cantidad.
     ```sql
-
-SELECT p.nombre AS personaje, COUNT(v.id) AS total_vehiculos
-FROM Personajes p
-LEFT JOIN Vehiculos v ON p.id = v.personajes_id
-GROUP BY p.nombre
-ORDER BY total_vehiculos DESC;
+    SELECT p.nombre AS personaje, COUNT(v.id) AS total_vehiculos
+    FROM Personajes p
+    LEFT JOIN Vehiculos v ON p.id = v.personajes_id
+    GROUP BY p.nombre
+    ORDER BY total_vehiculos DESC;
 
 39. **Listar las familias junto con los eventos que celebran, si tienen alguno**:
     Muestra las familias y los eventos que han celebrado, si han participado en alguno.
     ```sql
-
-SELECT f.nombre AS familia, e.nombre AS evento
-FROM Familias f
-LEFT JOIN Familias_Eventos fe ON f.id = fe.familias_id
-LEFT JOIN Eventos e ON fe.eventos_id = e.id;
+    SELECT f.nombre AS familia, e.nombre AS evento
+    FROM Familias f
+    LEFT JOIN Familias_Eventos fe ON f.id = fe.familias_id
+    LEFT JOIN Eventos e ON fe.eventos_id = e.id;
 
 40. **Encontrar el personaje más viejo de cada familia**:
     Selecciona el personaje más viejo de cada familia.
     ```sql
-
-SELECT f.nombre AS familia, MAX(p.edad) AS edad_maxima
-FROM Familias f
-JOIN Personajes p ON f.id = p.familia_id
-GROUP BY f.nombre;
+    SELECT f.nombre AS familia, MAX(p.edad) AS edad_maxima
+    FROM Familias f
+    JOIN Personajes p ON f.id = p.familia_id
+    GROUP BY f.nombre;
 
 41. **Obtener la lista de objetos y la cantidad de personajes que los poseen**:
     Muestra los objetos y cuántos personajes tienen cada uno de ellos.
     ```sql
-
-SELECT o.nombre AS objeto, COUNT(po.personajes_id) AS total_personajes
-FROM Objetos o
-LEFT JOIN Personajes_Objetos po ON o.id = po.objetos_id
-GROUP BY o.nombre;
+    SELECT o.nombre AS objeto, COUNT(po.personajes_id) AS total_personajes
+    FROM Objetos o
+    LEFT JOIN Personajes_Objetos po ON o.id = po.objetos_id
+    GROUP BY o.nombre;
 
 -42. **Listar los personajes y sus mascotas, mostrando 'Ninguna' si no tienen**:
     Muestra los personajes y sus mascotas, mostrando "Ninguna" si no tienen mascota.
     ```sql
-
-SELECT p.nombre AS personaje, COALESCE(m.nombre, 'Ninguna') AS mascota
-FROM Personajes p
-LEFT JOIN Mascotas m ON p.id = m.personajes_id;
+    SELECT p.nombre AS personaje, COALESCE(m.nombre, 'Ninguna') AS mascota
+    FROM Personajes p
+    LEFT JOIN Mascotas m ON p.id = m.personajes_id;
 
 43. **Contar cuántos eventos se han celebrado en cada lugar**:
     Cuenta la cantidad de eventos que se han celebrado en cada lugar.
     ```sql
-
-SELECT l.nombre AS lugar, COUNT(el.eventos_id) AS total_eventos
-FROM Lugares l
-LEFT JOIN Eventos_Lugares el ON l.id = el.lugares_id
-GROUP BY l.nombre;
+    SELECT l.nombre AS lugar, COUNT(el.eventos_id) AS total_eventos
+    FROM Lugares l
+    LEFT JOIN Eventos_Lugares el ON l.id = el.lugares_id
+    GROUP BY l.nombre;
 
 44. **Obtener los nombres de todos los personajes que tienen un coche**:
     Muestra los nombres de los personajes que poseen al menos un coche.
     ```sql
-
-SELECT DISTINCT p.nombre AS personaje
-FROM Personajes p
-JOIN Vehiculos v ON p.id = v.personajes_id;
+    SELECT DISTINCT p.nombre AS personaje
+    FROM Personajes p
+    JOIN Vehiculos v ON p.id = v.personajes_id;
 
 45. **Listar los episodios que pertenecen a la primera temporada**:
     Obtiene los títulos de los episodios de la primera temporada.
     ```sql
-
-SELECT e.titulo AS episodio
-FROM Episodios e
-JOIN Temporadas t ON e.temporadas_id = t.id
-WHERE t.titulo = 'Temporada 1';
+    SELECT e.titulo AS episodio
+    FROM Episodios e
+    JOIN Temporadas t ON e.temporadas_id = t.id
+    WHERE t.titulo = 'Temporada 1';
 
 46. **Obtener la lista de familias y la cantidad de personajes en cada familia**:
     Muestra las familias y cuántos personajes tiene cada una.
     ```sql
-
-SELECT f.nombre AS familia, COUNT(p.id) AS total_personajes
-FROM Familias f
-LEFT JOIN Personajes p ON f.id = p.familia_id
-GROUP BY f.nombre;
+    SELECT f.nombre AS familia, COUNT(p.id) AS total_personajes
+    FROM Familias f
+    LEFT JOIN Personajes p ON f.id = p.familia_id
+    GROUP BY f.nombre;
 
 
 47. **Listar los lugares donde se han realizado eventos relacionados con "Navidad"**:
     Muestra los lugares donde se han realizado eventos relacionados con "Navidad".
     ```sql
-
-SELECT l.nombre AS lugar
-FROM Lugares l
-JOIN Eventos_Lugares el ON l.id = el.lugares_id
-JOIN Eventos e ON el.eventos_id = e.id
-WHERE e.nombre = 'Navidad';
+    SELECT l.nombre AS lugar
+    FROM Lugares l
+    JOIN Eventos_Lugares el ON l.id = el.lugares_id
+    JOIN Eventos e ON el.eventos_id = e.id
+    WHERE e.nombre = 'Navidad';
 
 48. **Contar la cantidad de objetos que tiene cada familia a través de sus personajes**:
     Muestra la cantidad total de objetos que posee cada familia a través de sus personajes.
     ```sql
-
-SELECT f.nombre AS familia, COUNT(po.objetos_id) AS total_objetos
-FROM Familias f
-JOIN Personajes p ON f.id = p.familia_id
-LEFT JOIN Personajes_Objetos po ON p.id = po.personajes_id
-GROUP BY f.nombre;
+    SELECT f.nombre AS familia, COUNT(po.objetos_id) AS total_objetos
+    FROM Familias f
+    JOIN Personajes p ON f.id = p.familia_id
+    LEFT JOIN Personajes_Objetos po ON p.id = po.personajes_id
+    GROUP BY f.nombre;
 
 49. **Obtener el evento más reciente**:
     Recupera el nombre y descripción del evento más reciente.
     ```sql
-
-SELECT nombre, descripcion
-FROM Eventos
-ORDER BY id DESC
-LIMIT 1;
+    SELECT nombre, descripcion
+    FROM Eventos
+    ORDER BY id DESC
+    LIMIT 1;
 
 50. **Contar cuántas temporadas tiene cada personaje basado en los episodios en los que aparece**:
     Cuenta cuántas temporadas ha aparecido cada personaje en los episodios.
     ```sql
-
-SELECT p.nombre AS personaje, COUNT(DISTINCT t.id) AS total_temporadas
-FROM Personajes p
-JOIN Episodios e ON p.id = e.temporadas_id
-JOIN Temporadas t ON e.temporadas_id = t.id
-GROUP BY p.nombre;
+    SELECT p.nombre AS personaje, COUNT(DISTINCT t.id) AS total_temporadas
+    FROM Personajes p
+    JOIN Episodios e ON p.id = e.temporadas_id
+    JOIN Temporadas t ON e.temporadas_id = t.id
+    GROUP BY p.nombre;
 
 51. **Listar los eventos que se celebran en la escuela**:
     Muestra los eventos que tienen lugar en la escuela.
     ```sql
-
-SELECT e.nombre AS evento
-FROM Eventos e
-JOIN Eventos_Lugares el ON e.id = el.eventos_id
-JOIN Lugares l ON el.lugares_id = l.id
-WHERE l.tipo = 'Escuela';
+    SELECT e.nombre AS evento
+    FROM Eventos e
+    JOIN Eventos_Lugares el ON e.id = el.eventos_id
+    JOIN Lugares l ON el.lugares_id = l.id
+    WHERE l.tipo = 'Escuela';
 
 52. **Obtener el promedio de edad de los personajes de cada familia**:
     Muestra el promedio de edad de los personajes en cada familia (repetida).
     ```sql
-
-SELECT f.nombre AS familia, AVG(p.edad) AS promedio_edad
-FROM Familias f
-JOIN Personajes p ON f.id = p.familia_id
-GROUP BY f.nombre;
+    SELECT f.nombre AS familia, AVG(p.edad) AS promedio_edad
+    FROM Familias f
+    JOIN Personajes p ON f.id = p.familia_id
+    GROUP BY f.nombre;
 
 53. **Listar todos los objetos que tienen los personajes y sus respectivos colores**:
     Muestra los nombres de los personajes, los objetos que poseen y sus respectivos colores.
     ```sql
-
-SELECT p.nombre AS personaje, o.nombre AS objeto, o.color
-FROM Personajes p
-JOIN Personajes_Objetos po ON p.id = po.personajes_id
-JOIN Objetos o ON po.objetos_id = o.id;
+    SELECT p.nombre AS personaje, o.nombre AS objeto, o.color
+    FROM Personajes p
+    JOIN Personajes_Objetos po ON p.id = po.personajes_id
+    JOIN Objetos o ON po.objetos_id = o.id;
 
 
 ## Autores👤:
