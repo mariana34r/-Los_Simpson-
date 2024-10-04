@@ -315,10 +315,10 @@ Vehículos debe tener nombre (marca/modelo), Tipo (coche , motocicleta,etc) colo
 | Canciones           | N a N               | Episodios              |
 
 ## Consultas 🎉:
-1.**Obtener todos los personajes**:
-   Recupera todos los registros de la tabla `Personajes`, mostrando toda la información disponible sobre cada personaje.
+###1.**Obtener todos los personajes**:
+   ##Recupera todos los registros de la tabla `Personajes`, mostrando toda la información disponible sobre cada personaje.
 
-SELECT * FROM Personajes;
+###SELECT * FROM Personajes;
 
 2. **Contar cuántos eventos tienen la palabra 'Día' en su nombre**:
    Cuenta la cantidad de eventos cuyos nombres contienen la palabra "Día".
