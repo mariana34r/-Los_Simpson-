@@ -326,98 +326,99 @@ Vehículos debe tener nombre (marca/modelo), Tipo (coche , motocicleta,etc) colo
    SELECT COUNT(*) FROM Eventos WHERE nombre LIKE '%Día%';
 
 4. **Obtener los títulos de las temporadas que comenzaron después del año 2000**:
-   Recupera los títulos de las temporadas que tienen una fecha de inicio posterior al 1 de enero de 2000.
-
-SELECT titulo FROM Temporadas WHERE fecha_inicio > '2000-01-01';
+   Recupera los títulos de las temporadas que tienen una fecha de inicio posterior al '1 de enero de 2000'.
+   ```sql
+   SELECT titulo FROM Temporadas WHERE fecha_inicio > '2000-01-01';
 
 4. **Listar todas las familias que viven en 'Evergreen Terrace'**:
-   Muestra los nombres de las familias que tienen una dirección que incluye "Evergreen Terrace".
-
-SELECT nombre FROM Familias WHERE direccion LIKE '%Evergreen Terrace%';
+   Muestra los nombres de las familias que tienen una dirección que incluye 'Evergreen Terrace'.
+   ```sql
+   SELECT nombre FROM Familias WHERE direccion LIKE '%Evergreen Terrace%';
 
 5. **Obtener los nombres y edades de los personajes que tienen menos de 18 años**:
-   Selecciona los nombres y edades de los personajes que son menores de 18 años.
-
-SELECT nombre, edad FROM Personajes WHERE edad < 18;
+   Selecciona los nombres y edades de los personajes que son menores de '18 años'.
+   ```sql
+   SELECT nombre, edad FROM Personajes WHERE edad < 18;
 
 6. **Mostrar todos los objetos de color 'Negro'**:
-   Recupera todos los objetos que tienen el color negro.
-
-SELECT nombre FROM Objetos WHERE color = 'Negro';
+   Recupera todos los objetos que tienen el color 'negro'.
+   ```sql
+   SELECT nombre FROM Objetos WHERE color = 'Negro';
 
 7. **Mostrar todos los vehículos tipo 'Sedán'**:
    Muestra todos los vehículos que son del tipo 'Sedán'.
-
-SELECT nombre FROM Vehiculos WHERE tipo = 'Sedán';
+   ```sql
+   SELECT nombre FROM Vehiculos WHERE tipo = 'Sedán';
 
 8. **Obtener el nombre y color de las mascotas que son gatos**:
-   Selecciona el nombre y color de las mascotas que son clasificadas como gatos.
-
-SELECT nombre, color FROM Mascotas WHERE tipo = 'Gato';
+   Selecciona el nombre y color de las mascotas que son clasificadas como 'gatos'.
+   ```sql
+   SELECT nombre, color FROM Mascotas WHERE tipo = 'Gato';
 
 
 9. **Listar los episodios que pertenecen a la temporada 1**:
-   Obtiene los títulos de todos los episodios que pertenecen a la temporada con ID 1.
-
-SELECT titulo FROM Episodios WHERE temporadas_id = 1;
+   Obtiene los títulos de todos los episodios que pertenecen a la 'temporada con ID 1'.
+   ```sql
+   SELECT titulo FROM Episodios WHERE temporadas_id = 1;
 
 10. **Contar cuántos personajes hay en la familia 'Los Simpson'**:
     Cuenta el número de personajes que pertenecen a la familia 'Los Simpson'.
-
-SELECT COUNT(*) FROM Personajes WHERE familia_id = 1;
+    ```sql
+    SELECT COUNT(*) FROM Personajes WHERE familia_id = 1;
 
 11. **Obtener los personajes que tienen más de 40 años y son hombres**:
-    Muestra los nombres de los personajes que son hombres y tienen más de 40 años.
-
-SELECT nombre FROM Personajes WHERE edad > 40 AND genero = 'Masculino';
+    Muestra los nombres de los personajes que son hombres y tienen más de '40 años'.
+    ```sql
+    SELECT nombre FROM Personajes WHERE edad > 40 AND genero = 'Masculino';
 
 12. **Listar los nombres de personajes y los nombres de sus vehículos**:
-    Une las tablas `Personajes` y `Vehiculos` para mostrar el nombre de cada personaje junto con el nombre de su vehículo.
-
-SELECT Personajes.nombre, Vehiculos.nombre 
-FROM Personajes 
-JOIN Vehiculos ON Personajes.id = Vehiculos.personajes_id;
+    Une las tablas `Personajes` y `Vehiculos` para mostrar el nombre de cada personaje junto con el nombre de su 'vehículo'.
+    ```sql
+    SELECT Personajes.nombre, Vehiculos.nombre
+    FROM Personajes
+    JOIN Vehiculos ON Personajes.id = Vehiculos.personajes_id;
 
 13. **Obtener la cantidad de personajes que tienen mascotas**:
-    Cuenta cuántos personajes tienen al menos una mascota.
-
-SELECT COUNT(DISTINCT personajes_id) FROM Mascotas;
+    Cuenta cuántos personajes tienen al menos una 'mascota'.
+    ```sql
+    SELECT COUNT(DISTINCT personajes_id) FROM Mascotas;
 
 14. **Listar los nombres de las familias que han participado en más de 3 eventos**:
-    Muestra los nombres de las familias que han participado en más de tres eventos.
-
-SELECT Familias.nombre 
-FROM Familias 
-JOIN Familias_Eventos ON Familias.id = Familias_Eventos.familias_id 
-GROUP BY Familias.nombre 
-HAVING COUNT(Familias_Eventos.eventos_id) > 3;
+    Muestra los nombres de las familias que han participado en más de 'tres eventos'.
+    ```sql
+    SELECT Familias.nombre
+    FROM Familias
+    JOIN Familias_Eventos ON Familias.id = Familias_Eventos.familias_id
+    GROUP BY Familias.nombre
+    HAVING COUNT(Familias_Eventos.eventos_id) > 3;
 
 
 15. **Obtener los nombres de personajes y el número de objetos que poseen**:
-    Lista los nombres de los personajes junto con el número de objetos que poseen.
-
-SELECT Personajes.nombre, COUNT(Personajes_Objetos.objetos_id) AS num_objetos 
-FROM Personajes 
-JOIN Personajes_Objetos ON Personajes.id = Personajes_Objetos.personajes_id 
-GROUP BY Personajes.nombre;
+    Lista los nombres de los personajes junto con el 'número de objetos' que poseen.
+    ```sql
+    SELECT Personajes.nombre, COUNT(Personajes_Objetos.objetos_id) AS num_objetos
+    FROM Personajes
+    JOIN Personajes_Objetos ON Personajes.id = Personajes_Objetos.personajes_id
+    GROUP BY Personajes.nombre;
 
 16. **Listar los nombres de los episodios donde la palabra 'Bart' aparece en la sinopsis**:
-    Recupera los títulos de episodios cuya sinopsis contiene la palabra "Bart".
-
-SELECT titulo FROM Episodios WHERE sinopsis LIKE '%Bart%';
+    Recupera los títulos de episodios cuya sinopsis contiene la palabra 'Bart'.
+    ```sql
+    SELECT titulo FROM Episodios WHERE sinopsis LIKE '%Bart%';
 
 17. **Obtener los nombres de personajes que tienen un vehículo de color 'Rojo'**:
-    Muestra los nombres de los personajes que poseen un vehículo rojo.
+    Muestra los nombres de los personajes que poseen un vehículo 'rojo'.
+    ```sql
 
-SELECT Personajes.nombre 
-FROM Personajes 
-JOIN Vehiculos ON Personajes.id = Vehiculos.personajes_id 
-WHERE Vehiculos.color = 'Rojo';
+     SELECT Personajes.nombre 
+     FROM Personajes 
+     JOIN Vehiculos ON Personajes.id = Vehiculos.personajes_id 
+     WHERE Vehiculos.color = 'Rojo';
 
 18. **Obtener los nombres de los objetos que tienen un uso relacionado con 'Trabajo'**:
-    Recupera los nombres de los objetos cuya utilidad está relacionada con "Trabajo".
-
-SELECT nombre FROM Objetos WHERE uso = 'Trabajo';
+    Recupera los nombres de los objetos cuya utilidad está relacionada con 'Trabajo'.
+    ```sql
+    SELECT nombre FROM Objetos WHERE uso = 'Trabajo';
 
 19. **Listar los nombres de personajes y el nombre de su familia**:
     Muestra el nombre de cada personaje junto con el nombre de su familia.
